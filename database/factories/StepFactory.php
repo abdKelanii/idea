@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Idea;
 use App\Models\Step;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,7 +19,10 @@ class StepFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'idea_id' => Idea::factory(),
+            'title' => fake()->sentence(),
+            'description' => fake()->sentence(),
+            'completed' => false,
         ];
     }
 }
