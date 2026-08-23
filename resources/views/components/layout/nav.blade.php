@@ -3,9 +3,23 @@
         <div>
             <a href="/">Idea</a>
         </div>
-        <div class=" flex gap-x-5 items-center">
-            <a href="/login">Login</a>
-            <a href="/register" class="btn">Register</a>
-        </div>
+
+        @guest
+            <div class=" flex gap-x-5 items-center">
+                <a href="/login">Login</a>
+                <a href="/register" class="btn">Register</a>
+            </div>
+        @endguest
+
+        @auth
+            <div class="flex gap-x-5 items-center">
+                <span>{{ auth()->user()->name }}</span>
+                <form action="/logout" method="POST">
+                    @csrf
+                    <button class="btn" type="submit">Logout</button>
+                </form>
+
+            </div>
+        @endauth
     </div>
 </nav>
