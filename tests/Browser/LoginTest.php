@@ -19,8 +19,7 @@ visit('/login')
 });
 
 
-
-it('should logout  the user ', function () {
+it('should logout the user ', function () {
     $user = User::factory()->create();
 
     $this->actingAs($user);
